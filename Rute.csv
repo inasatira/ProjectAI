@@ -1,20 +1,13 @@
 Child,Parent
-Kuta Mandalika,Bandara Internasionl A
-Kuta Mandalika,Desa Sade
 Kuta Mandalika,Tanjung Aan
 Kuta Mandalika,Masjid Nurul Bilad Kuta Mandalika
 Kuta Mandalika,Bukit Merese
 Kuta Mandalika,Novotel Lombok Resort and Villas
 Desa Sade,Bandara Internasionl A
 Desa Sade,Kuta Mandalika
-Desa Sade,Tanjung Aan
 Desa Sade,Masjid Nurul Bilad Kuta Mandalika
-Desa Sade,Bukit Merese
-Desa Sade,Novotel Lombok Resort and Villas
-Tanjung Aan,Bandara Internasionl A
 Tanjung Aan,Kuta Mandalika
 Tanjung Aan,Desa Sade
-Tanjung Aan,Masjid Nurul Bilad Kuta Mandalika
 Tanjung Aan,Bukit Merese
 Tanjung Aan,Novotel Lombok Resort and Villas
 Masjid Nurul Bilad Kuta Mandalika,Bandara Internasionl A
@@ -23,15 +16,12 @@ Masjid Nurul Bilad Kuta Mandalika,Desa Sade
 Masjid Nurul Bilad Kuta Mandalika,Tanjung Aan
 Masjid Nurul Bilad Kuta Mandalika,Bukit Merese
 Masjid Nurul Bilad Kuta Mandalika,Novotel Lombok Resort and Villas
-Bukit Merese,Bandara Internasionl A
 Bukit Merese,Kuta Mandalika
 Bukit Merese,Desa Sade
 Bukit Merese,Tanjung Aan
 Bukit Merese,Masjid Nurul Bilad Kuta Mandalika
 Bukit Merese,Novotel Lombok Resort and Villas
 Novotel Lombok Resort and Villas,Kuta Mandalika
-Novotel Lombok Resort and Villas,Bandara Internasionl A
-Novotel Lombok Resort and Villas,Desa Sade
 Novotel Lombok Resort and Villas,Tanjung Aan
 Novotel Lombok Resort and Villas,Masjid Nurul Bilad Kuta Mandalika
 Novotel Lombok Resort and Villas,Bukit Merese
