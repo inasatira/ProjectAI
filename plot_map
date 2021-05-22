@@ -1,0 +1,78 @@
+import plotly.graph_objects as go
+import plotly.express as px
+import pandas as pd
+
+def plot_map(start_node, goal_node, data):
+  lok = GreedyBestFirstSearch(start_node, goal_node, data)
+  lat2 = []
+  long2 = []
+  for i in range(len(lok)-1):
+    a = lok['latitude'][i+1]
+    lat2.append(a)
+    if a == lok['latitude'][len(lok)-1]:
+      lat2.append(lok['latitude'][len(lok)-1])
+
+  for i in range(len(lok)-1):
+    b = lok['longitude'][i+1]
+    long2.append(b)
+    if b == lok['longitude'][len(lok)-1]:
+      long2.append(lok['longitude'][len(lok)-1])
+
+  lok['latitude2'] = lat2
+  lok['longitude2'] = long2
+
+  # fig = go.Figure()
+  import requests
+  fig = pickle.loads(
+      requests.get('https://github.com/inasatira/ProjectAI/blob/main/fig.pickle').content
+  )
+
+  fig.add_trace(
+      go.Scattermapbox(
+          mode = "markers",
+          lon = data_with_coordinate.sort_values('destinasi_Wisata').longitude,
+          lat = data_with_coordinate.sort_values('destinasi_Wisata').latitude,
+          marker = {'size':6, 'color':'blue'},
+          line = {'width':4},
+          text = data_with_coordinate.destinasi_Wisata,
+          customdata = get_heuristics_data(goal_node).groupby('Child').apply(lambda x:x.Heu.unique()[0]).values,
+          hovertemplate = "<br><b>%{text}</b></br><br>%{customdata:.3f}</br>"
+      )
+  )
+
+  x = lok.iloc[:,[1,2,3,4]]
+
+  for i in range(x.shape[0]):
+    fig.add_trace(
+        go.Scattermapbox(
+            mode = "lines",
+            lat = x.iloc[i,[0,2]],
+            lon = x.iloc[i,[1,3]],
+            line = {'width' : 4, 'color' : 'red'},
+        )
+    )
+    fig.update_layout(
+        mapbox = None
+    )
+
+  fig.add_trace(
+      go.Scattermapbox(
+          lat = lok.latitude,
+          lon = lok.longitude,
+          mode = 'markers',
+          text = lok.destinasi_Wisata,
+          customdata = get_heuristics_data(goal_node).groupby('Child').apply(lambda x:x.Heu.unique()[0])[lok.destinasi_Wisata].values,
+          hovertemplate = "<br><b>%{text}</b></br><br>%{customdata:.3f}</br>",
+          marker = {'size':8, 'color':'red'}
+      )
+  )
+
+  fig.update_layout(
+      margin ={'l':0,'t':0,'b':0,'r':0},
+      mapbox = {
+          'style': "open-street-map",
+          'center':{'lat':-6.231586,'lon':106.866688},
+          'zoom': 10},
+      showlegend = False
+  )
+  return fig
